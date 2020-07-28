@@ -43,8 +43,19 @@ else
   exit 1
 fi
 
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NOCOLOR='\033[0m'
+
 siteDir=/var/www/$domain
 
+echo -e "${YELLOW}###############################################################"
+echo             "## When prompted for how you would like to authenticate,"
+echo -e          "##     ${RED}select option 3, Place files in webroot directory (webroot)"
+echo -e "${YELLOW}##"
+echo -e          "## When prompted for the webroot, enter"
+echo -e          "##     ${NOCOLOR}/var/www/$domain/public_html"
+echo -e "${YELLOW}###############################################################${NOCOLOR}"
 successMsg="Renewed SSL certificate for $domain"
 certbot certonly -d $domain
 checkForError
