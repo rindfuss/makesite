@@ -185,6 +185,10 @@ successMsg="Set site files to inheret group"
 chmod g+s $siteDir
 checkForError
 
+successMsg="Set document root files to inheret group"
+chmod g+s $siteDir/public_html
+checkForError
+
 # create website configuration file
 successMsg="created $confDir/$domain.conf"
 cat makesite.conf | sed "s/~~~~~/$domain/g" >$confDir/$domain.conf
